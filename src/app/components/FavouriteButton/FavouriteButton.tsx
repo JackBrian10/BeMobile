@@ -15,8 +15,12 @@ export const FavouriteButton = ({
   isFavorite,
   onClick,
 }: FavouriteButtonProps) => {
+  const handleClick = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    onClick();
+  };
   return (
-    <button onClick={onClick} className="cursor-pointer">
+    <button onClick={handleClick} className="cursor-pointer z-10">
       <Image
         src={isFavorite ? FilledHeart : EmptyHeart}
         alt="Heart Icon"
